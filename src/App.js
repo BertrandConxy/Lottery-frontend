@@ -28,11 +28,6 @@ function App() {
     return accounts[0] === manager;
  }
 
- const getLastWinner = async () => {
-    const lastWinner = await lottery.methods.lastWinner().call();
-    return lastWinner;
-  }
-
   return (
     <div className="App">
       <h2>Lottery Contract</h2>
@@ -65,8 +60,6 @@ function App() {
       {
         validateManager() ? <PickWinner /> : null
       }
-
-
     </div>
   )
 }
