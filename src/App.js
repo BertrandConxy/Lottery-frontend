@@ -2,6 +2,7 @@ import './App.css';
 import web3 from './web3';
 import { useEffect, useState } from 'react';
 import lottery from './lottery';
+import EnterForm from './components/EnterForm';
 
 function App() {
   const [manager, setManager] = useState('');
@@ -25,7 +26,7 @@ useEffect(() => {
       <h2>Lottery Contract</h2>
       <div className='flex-container'>
         <span>
-          This contract is managed by <strong>{manager}</strong>.
+          This contract is managed by <strong className='address'>{manager}</strong>.
         </span>
         <span>
           There are currently <strong>{players.length}</strong> people entered,
@@ -34,6 +35,8 @@ useEffect(() => {
           competing to win <strong>{web3.utils.fromWei(balance, 'ether')}</strong> ether!
         </span>
       </div>
+      <hr />
+      <EnterForm />
     </div>
   );
 }
